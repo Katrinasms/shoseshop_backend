@@ -14,7 +14,7 @@ connectDatabase();
 const app = express()
 const port = 5001
 app.use(express.json());
-app.use(cors({origin:'*'}))
+app.use(cors({ origin: '*' }))
 
 // // put data to the server
 app.get('/', (req, res) => {
