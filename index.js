@@ -13,22 +13,8 @@ dotenv.config();
 connectDatabase();
 const app = express()
 const port = 5001
-app.use(cors({ origin: "*" }))
 app.use(express.json());
-
-// var whitelist = ['*']
-// var corsOptions = {
-//     credentials: true,
-//     origin: function(origin, callback) {
-//       if (whitelist.indexOf(origin) !== -1) {
-//         callback(null, true)
-//       } else {
-//         callback(new Error('Not allowed by CORS'))
-//       }
-//     }
-//   }
-  
-// app.use(cors(corsOptions));
+app.use(cors({ origin: '*' }))
 
 // // put data to the server
 app.get('/', (req, res) => {
@@ -71,10 +57,8 @@ app.use("/api/import",ImportData);
 app.use("/api/users",userRoute);
 app.use("/api/orders", orderRouter);
 app.get("/api/config/paypal", (req, res)=>{
-  res.send(process.env.PORT)
+  res.send(process.env.PAYPAL_CLIENT_ID)
 });
-
-
 
 //userRoute
 
@@ -84,7 +68,7 @@ app.use(errorHandler)
 
 
 
-const PORT = process.env.PORT || 5000 ;
+const PORT = process.env.PORT || 5001 ;
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
