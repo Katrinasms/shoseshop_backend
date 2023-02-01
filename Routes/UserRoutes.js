@@ -53,11 +53,9 @@ userRoute.get(
 )
 
 
-// userRoute.get('/', (req, res) => {
-//   res.send('Hello user!')
-// }
-
-// )
+userRoute.get('/', (req, res) => {
+  res.send('Hello user!')
+})
 // Register
 userRoute.post(
     "/",
